@@ -9,8 +9,10 @@ class Audio(models.Model):
     An audio clip that can be generically related to any model.
     """
     
-    file = models.FileField("Audio", upload_to='content/audio/', help_text='Only MP3 files are supported at this time.')
-    pub_date = models.DateTimeField("Date published", default=datetime.now)
+    file = models.FileField("Audio", upload_to='content/audio/', 
+        help_text='Only MP3 files are supported at this time.')
+    pub_date = models.DateTimeField("Date published", 
+        default=datetime.now)
     title = models.CharField(max_length=100)
     slug = models.SlugField()
     summary = models.TextField()
