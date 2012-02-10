@@ -1,8 +1,9 @@
+import os
 from django.db import models
 from django.contrib.contenttypes.models import ContentType
 from django.contrib.contenttypes import generic
-from datetime import datetime
-import os
+from django.utils import timezone
+
 
 class Audio(models.Model):
     """
@@ -12,7 +13,7 @@ class Audio(models.Model):
     file = models.FileField("Audio", upload_to='content/audio/', 
         help_text='Only MP3 files are supported at this time.')
     pub_date = models.DateTimeField("Date published", 
-        default=datetime.now)
+        default=timezone.now)
     title = models.CharField(max_length=100)
     slug = models.SlugField()
     summary = models.TextField()
